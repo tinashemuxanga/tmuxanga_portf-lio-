@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contacto | Tinashe</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui,'Poppins',sans-serif;scroll-behavior:smooth}
+   /* Fundo Global  */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  background: url('img/fotodefundo.jpg') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+}
+
+/* Efeito blur e escurecimento */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(8px); /* nível de desfoque */
+  background: rgba(0, 0, 0, 0.5); /* escurece um pouco o fundo */
+  z-index: -1; /* mantém o conteúdo acima */
+}
+
+/* Garantir boa legibilidade */
+section {
+  position: relative;
+  z-index: 1;
+  padding: 60px 20px;
+}
+
+    a{color:inherit;
+      text-decoration:none}
+
+    /* Preloader */
+    #preloader{position:fixed;
+      inset:0;
+      background:#000;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:9999}
+
+    .loader{width:52px;
+      height:52px;
+      border:6px solid #141414;
+      border-top-color:#f2b90f;
+      border-radius:50%;
+      animation:spin 1s linear infinite}
+
+    @keyframes spin{
+      to{transform:rotate(360deg)}}
+
+    header{position:fixed;
+      inset:0 0 auto 0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 64px;
+      z-index:900;
+      background:transparent;
+      transition:.35s}
+
+    header.scrolled{background:rgba(12,12,12,.96)}
+    .logo{color:#f2b90f;
+      font-weight:800}
+
+    nav ul{display:flex;
+      gap:26px;
+      list-style:none}
+
+    .menu-toggle{display:none;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer}
+
+    .menu-toggle span{width:26px;
+    height:3px;
+    background:#f2b90f;
+    border-radius:3px}
+
+
+    @media(max-width:840px){
+      nav ul{position:fixed;top:70px;
+      right:18px;background:rgba(8,8,8,.98);
+      width:220px;
+      height:0;
+      overflow:hidden;
+      flex-direction:column;
+      padding:0;
+      border-radius:8px;
+      transition:height .4s}
+      nav ul.active{height:220px;
+      padding:18px 0}
+      .menu-toggle{display:flex}
+    }
+
+    main{padding-top:110px}
+
+    .container{max-width:980px;
+      margin:44px auto;
+      padding:26px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+      border-radius:12px}
+    .split{display:flex;
+      gap:28px}
+
+
+    .left{flex:1;
+      padding:10px}
+
+
+    .right{flex:1;
+      padding:10px}
+
+
+    h1{font-size:1.9rem;
+      margin-bottom:10px;
+      color:#fff}
+
+
+    p.sub{color:#cfcfcf;
+      margin-bottom:18px}
+
+    form{display:flex;
+      flex-direction:column;
+      gap:12px}
+
+
+    input,textarea{background:#0f0f0f;
+      border:1px solid rgba(255,255,255,0.04);
+      padding:12px;
+      border-radius:8px;
+      color:#eee;
+      outline:none}
+
+    textarea{min-height:140px;
+      resize:vertical}
+
+    .btn{display:inline-block;
+      padding:10px 18px;
+      border-radius:999px;
+      border:2px solid #f2b90f;
+      color:#f2b90f;
+      font-weight:700;
+      cursor:pointer}
+
+
+    .contact-card{padding:14px;
+      border-radius:10px;
+      background:rgba(255,255,255,0.02);
+      margin-bottom:12px}
+    @media(max-width:900){.split{flex-direction:column}}
+
+     footer{padding:30px 10%;text-align:center;color:#9c9c9c;border-top:1px solid rgba(255,255,255,.03);margin-top:40px}
+
+  </style>
+</head>
+<body>
+  <div id="preloader"><div class="loader" aria-hidden="true"></div></div>
+
+  <header id="navbar">
+    <div class="logo">MUXANGA <sup>1st</sup> </div>
+    <div class="menu-toggle" id="menuBtn" aria-label="Abrir menu" role="button" tabindex="0"><span></span><span></span><span></span></div>
+    <nav><ul id="menu">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="sobre.html">Sobre Mim</a></li>
+      <li><a href="servicos.html">Serviços</a></li>
+      <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+    </ul></nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="split">
+        <div class="left">
+          <h1>Contacto</h1>
+          <p class="sub">Precisas de uma solução web ou apoio técnico? Envia aqui uma mensagem ou usa os contactos diretos abaixo. Atendo preferencialmente por WhatsApp durante horas úteis (Maputo time).</p>
+
+          <div class="contact-card">
+            <strong>Local:</strong> Maputo, Moçambique<br>
+            <strong>Telefone:</strong> +258 84 265 7688<br>
+            <strong>Email:</strong> tinashemuxanga56@gmail.com
+          </div>
+
+          <div class="contact-card">
+            <strong>Disponibilidade:</strong> Segunda — Sexta (08:00 — 17:30)<br>
+            <strong>Resposta típica:</strong> 24 — 48 horas úteis
+          </div>
+        </div>
+
+        <div class="right">
+          <form id="contactForm" action="#" method="post" onsubmit="return false;">
+
+            <input type="text" id="name" name="name" placeholder="Nome completo" required>
+
+             <input type="email" name="email" id="email" placeholder="exemplo@email.com" required>
+
+            <input type="tel" id="phone" name="phone" placeholder="Telefone (opcional)">
+
+            <textarea id="message" name="message" placeholder="Escreve a tua mensagem..." required></textarea>
+
+            <div style="display:flex;gap:12px;align-items:center">
+              <button type="submit" class="btn" id="sendBtn">Enviar Mensagem</button>
+          
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+ <footer>
+      <small> ©TINASHE MUXANGA. <span id="yr"></span> all copyrights reserved</small>
+    </footer>
+  <script>
+    // Preloader
+    window.addEventListener('load', () => {
+      const pre = document.getElementById('preloader');
+      pre.style.opacity = '0';
+      setTimeout(()=>pre.style.display='none',600);
+    });
+
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll',()=>{ if(window.scrollY>50) navbar.classList.add('scrolled');
+     else navbar.classList.remove('scrolled'); });
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const menu = document.getElementById('menu');
+    menuBtn.addEventListener('click',()=> menu.classList.toggle('active'));
+
+  
+  </script>
+</body>
+</html>

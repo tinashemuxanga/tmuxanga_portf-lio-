@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serviços - Tinashe</title>
+  <link rel="stylesheet" href="servicos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  background: url('img/fotodefundo.jpg') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(8px); /* nível de desfoque */
+  background: rgba(0, 0, 0, 0.5); /* escurece um pouco o fundo */
+  z-index: -1; /* mantém o conteúdo acima */
+}
+
+/* Garantir boa legibilidade */
+section {
+  position: relative;
+  z-index: 1;
+  padding: 60px 20px;
+}
+
+
+
+/* Loader */
+#loader {
+  position: fixed;
+  background: #000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #444;
+  border-top: 5px solid #f9b233;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  transition: 0.3s;
+  z-index: 999;
+}
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f9b233;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  transition: 0.3s;
+}
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: #f9b233;
+}
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #f9b233;
+}
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    width: 200px;
+    text-align: center;
+    display: none;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* Serviços */
+.servicos {
+  padding: 130px 10% 80px;
+  text-align: center;
+  animation: fadeIn 1.5s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.servicos h1 {
+  font-size: 2.5rem;
+  color: #f9b233;
+  margin-bottom: 10px;
+}
+.intro {
+  color: #ccc;
+  margin-bottom: 50px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+.card {
+  background: #111;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.4s;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  animation: zoomIn 1.2s ease;
+}
+@keyframes zoomIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px rgba(249,178,51,0.6);
+}
+.img-container {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.4s;
+}
+.card:hover img {
+  transform: scale(1.1);
+}
+.card-content {
+  padding: 20px;
+}
+.card-content h3 {
+  color: #f9b233;
+  margin-bottom: 10px;
+}
+.card-content p {
+  color: #ccc;
+  font-size: 0.95rem;
+  line-height: 1.5rem;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+  </style>
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">MUXANGA <sup>1st</sup></div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre mim</a></li>
+        <li><a href="servicos.html" class="active">Serviços</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <div class="menu-toggle" id="menu-toggle">☰</div>
+    </nav>
+  </header>
+
+  <!-- Secção Serviços -->
+  <section class="servicos">
+    <h1>Serviços</h1>
+    <p class="intro">
+      Ofereço soluções práticas e criativas nas áreas de tecnologia, design e electricidade,
+      adaptadas às necessidades do mercado moçambicano.
+    </p>
+
+    <div class="cards">
+      <!-- Serviço 1 -->
+      <div class="card">
+        <div class="img-container">
+          <img src="img/design-de-banner-de-marketing-digital-roxo-e-estilo-corporativo-da-agencia-de-marketing-digital_1029473-151561.jpg" alt="Serviço de Design" />
+        </div>
+        <div class="card-content">
+          <h3>Designer</h3>
+          <p>
+            Criação de logotipos, banners e identidade visual moderna e profissional, com base
+            em ferramentas de design gráfico e princípios estéticos actuais.
+          </p>
+        </div>
+      </div>
+
+      <!-- Serviço 2 -->
+      <div class="card">
+        <div class="img-container">
+          <img src="img/01-5.jpg" alt="Manutenção de hardware e software" />
+        </div>
+        <div class="card-content">
+          <h3>Manutenção e Reparação</h3>
+          <p>
+            Diagnóstico, manutenção e reparação de hardware e software. Instalação de sistemas
+            operativos e optimização de desempenho para computadores pessoais e empresariais.
+          </p>
+        </div>
+      </div>
+
+      <!-- Serviço 3 -->
+      <div class="card">
+        <div class="img-container">
+          <img src="img/17.png" alt="Desenvolvimento Web" />
+        </div>
+        <div class="card-content">
+          <h3>Desenvolvimento Web</h3>
+          <p>
+            Desenvolvimento de websites modernos, responsivos e funcionais, utilizando HTML, CSS
+            e JavaScript, adaptados à imagem e missão de cada cliente.
+          </p>
+        </div>
+      </div>
+
+      <!-- Serviço 4 -->
+      <div class="card">
+        <div class="img-container">
+          <img src="img/“Between Emotions”.jpeg" alt="Instalação Eléctrica" />
+        </div>
+        <div class="card-content">
+          <h3>Instalação Eléctrica</h3>
+          <p>
+            Execução e planeamento de instalações eléctricas residenciais seguras e eficientes,
+            respeitando as normas e boas práticas de electricidade em Moçambique.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Loader
+    window.addEventListener("load", () => {
+      document.getElementById("loader").style.display = "none";
+    });
+
+    // Navbar color change
+    window.addEventListener("scroll", () => {
+      const navbar = document.querySelector(".navbar");
+      navbar.classList.toggle("scrolled", window.scrollY > 50);
+    });
+
+    // Menu toggle
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  </script>
+</body>
+</html>

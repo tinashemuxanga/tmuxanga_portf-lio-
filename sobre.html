@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sobre | Tinashe</title>
+  <style>
+    /* Reset + base */
+    *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,'Poppins',sans-serif}
+    /* ===== Fundo Global ===== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  background: url('img/fotodefundo.jpg') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+}
+
+/* Efeito blur e escurecimento */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(8px); /* nível de desfoque */
+  background: rgba(0, 0, 0, 0.5); /* escurece um pouco o fundo */
+  z-index: -1; /* mantém o conteúdo acima */
+}
+
+/* Garantir boa legibilidade */
+section {
+  position: relative;
+  z-index: 1;
+  padding: 60px 20px;
+}
+
+    a{color:inherit;text-decoration:none}
+
+    /* Preloader */
+    #preloader{position:fixed;
+      inset:0;
+      background:#000;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:9999;
+      transition:opacity .6s
+    }
+    .loader{
+      width:56px;
+      height:56px;
+      border:6px solid #111;
+      border-top-color:#f2b90f;
+      border-radius:50%;
+      animation:spin 1s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    /* Header / Nav */
+    header{
+      position:fixed;
+      inset:0 0 auto 0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 64px;
+      z-index:900;
+      transition:all .35s;
+      background:transparent}
+
+    header.scrolled{background:rgba(15,15,15,.94);
+      backdrop-filter:blur(4px);
+      box-shadow:0 6px 20px rgba(0,0,0,.6)}
+    .logo{
+      font-weight:800;
+      color:#f2b90f;
+      letter-spacing:.6px
+    }
+    nav ul{
+      display:flex;
+      gap:28px;
+      list-style:none;
+      align-items:center}
+
+    nav ul li a{padding:8px 4px;
+      border-radius:6px;
+      font-weight:600;
+      color:#eaeaea;
+      transition:color .25s
+    }
+    nav ul li a:hover{
+      color:#f2b90f
+    }
+
+    /* Menu toggle mobile */
+    .menu-toggle{
+      display:none;
+      flex-direction:column;
+      gap:5px;
+      cursor:pointer}
+
+    .menu-toggle span{
+      width:28px;
+      height:3px;
+      background:#f2b90f;
+      border-radius:3px;
+      display:block}
+    @media (max-width:840px){
+      header{padding:14px 20px}
+
+      nav ul{position:fixed;top:70px;
+        right:18px;
+        background:rgba(8,8,8,.98);
+        width:220px;
+        height:0;
+        overflow:hidden;
+        flex-direction:column;
+        padding:0;
+        border-radius:8px;
+        transition:height .4s}
+      nav ul.active{height:200px;padding:18px 0}
+      nav ul li{width:100%;text-align:center}
+      .menu-toggle{display:flex}
+    }
+
+    /* Main layout */
+    main{padding-top:110px}
+    .page-header{padding:70px 10% 40px;
+      display:flex;
+      gap:40px;
+      align-items:center
+    }
+
+    .left{flex:1;
+      max-width:560px;
+      animation:fadeUp .9s ease both
+    }
+
+    .right{flex:1;
+      display:flex;
+      justify-content:center;
+      animation:fadeIn .9s .15s both
+    }
+    .avatar{width:320px;
+      border-radius:16px;
+      object-fit:cover;
+      box-shadow:0 12px 40px rgba(0,0,0,.6)
+    }
+
+    h1{
+      font-size:2.6rem;
+      color:#fff;
+      margin-bottom:18px
+    }
+
+    p.lead{
+      color:#cfcfcf;
+      margin-bottom:18px
+    }
+
+    /* Info card */
+    .info{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      padding:22px;
+      border-radius:12px;
+      display:flex;
+      flex-direction:column;
+      gap:10px}
+
+    .info-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      color:#c9c9c9;
+      font-weight:
+    600}
+
+    .cta{
+      margin-top:14px;
+      display:inline-block;
+      padding:10px 18px;
+      border-radius:999px;
+      border:2px solid #f2b90f;
+      color:#f2b90f;
+      font-weight:700
+    }
+
+    /* Skills (bars) */
+    .skills{padding:40px 10%}
+    
+    .skills-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px
+    }
+    .skill{
+      background:#0d0d0d;
+      padding:14px;
+      border-radius:10px}
+
+    .skill .label{display:flex;
+      justify-content:space-between;
+      margin-bottom:8px;
+      color:#ddd;
+      font-weight:700}
+
+    .bar{height:8px;
+      background:#171717;
+      border-radius:8px;
+      overflow:hidden}
+    .bar > i{display:block;
+      height:100%;
+      background:linear-gradient(90deg,#f2b90f,#f7d58f);
+      width:0;
+      transition:width 1.2s cubic-bezier(.2,.9,.3,1)}
+
+    /* Footer */
+    footer{padding:30px 10%;text-align:center;color:#9c9c9c;border-top:1px solid rgba(255,255,255,.03);margin-top:40px}
+
+    /* Animations */
+    @keyframes fadeUp{
+      from{opacity:0;
+      transform:translateY(20px)}
+      to{opacity:1;
+        transform:none}
+    }
+
+    @keyframes fadeIn
+    {from{opacity:0;
+      transform:translateX(40px)}
+      to{opacity:1;
+        transform:none}
+      }
+
+    /* Responsive tweaks */
+    @media (max-width:900px){.page-header{flex-direction:column-reverse;padding:36px 6%}}
+    @media (max-width:520px){.avatar{width:220px}h1{font-size:1.9rem}}
+  </style>
+</head>
+<body>
+  <!-- Preloader -->
+  <div id="preloader"><div class="loader" aria-hidden="true"></div></div>
+
+  <!-- Header -->
+  <header id="navbar">
+    <div class="logo">MUXANGA <sup>1st</sup></div>
+    <div class="menu-toggle" id="menuBtn" aria-label="Abrir menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+    <nav>
+      <ul id="menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html" aria-current="page">Sobre Mim</a></li>
+        <li><a href="servicos.html">Serviços</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="left">
+        <h1>Sobre mim</h1>
+        <p class="lead">Sou desenvolvedor web full-stack com foco em soluções práticas para pequenas empresas e projetos em Moçambique — websites institucionais, lojas online simples e automações locais. Trabalho com HTML, CSS moderno (Flex/Grid), e PHP leve para back-end.</p>
+
+        <div class="info" aria-hidden="false">
+          <div class="info-row"><span>Nome</span><strong>Tinashe Muxanga</strong></div>
+          <div class="info-row"><span>Local</span><strong>Maputo, Moçambique</strong></div>
+          <div class="info-row"><span>Email</span><strong>tinashemuxanga56@gmail.com</strong></div>
+          <div class="info-row"><span>Telefone</span><strong>+258 87 465 7688</strong></div>
+          <a class="cta" href="contacto.html">Contratar/Contactar</a>
+        </div>
+      </div>
+
+      <div class="right">
+        <img src="img/481829341_1170524027851533_7187330015744518716_n.jpg" alt="Foto do Tinashe" class="avatar">
+      </div>
+    </section>
+
+    <section class="skills" aria-label="Competências">
+      <h2 style="text-align:center;font-size:1.8rem;margin-bottom:20px;color:#fff">Competências</h2>
+      <div class="skills-grid">
+        <div class="skill">
+          <div class="label"><span>HTML5</span><span>75%</span></div>
+          <div class="bar"><i data-width="95%"></i></div>
+        </div>
+        <div class="skill">
+          <div class="label"><span>CSS3</span><span>70%</span></div>
+          <div class="bar"><i data-width="90%"></i></div>
+        </div>
+        <div class="skill">
+          <div class="label"><span>JavaScript </span><span>62%</span></div>
+          <div class="bar"><i data-width="82%"></i></div>
+        </div>
+        <div class="skill">
+          <div class="label"><span>ms office</span><span>88%</span></div>
+          <div class="bar"><i data-width="78%"></i></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <small> ©TINASHE MUXANGA. <span id="yr"></span> all copyrights reserved</small>
+    </footer>
+  </main>
+
+  <script>
+    // Preloader
+    window.addEventListener('load', () => {
+      const pre = document.getElementById('preloader');
+      pre.style.opacity = '0';
+      setTimeout(()=>pre.style.display='none',600);
+
+      // animar barras de skills
+      document.querySelectorAll('.bar i').forEach(i=>{
+        const w = i.getAttribute('data-width') || '70%';
+        i.style.width = w;
+      });
+     });
+
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll',()=> {
+      if(window.scrollY>50) navbar.classList.add('scrolled'); else navbar.classList.remove('scrolled');
+    });
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const menu = document.getElementById('menu');
+    menuBtn.addEventListener('click',()=> menu.classList.toggle('active'));
+  </script>
+</body>
+</html>
